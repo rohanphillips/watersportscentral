@@ -1,9 +1,15 @@
 <%= form_for(@user) do |f| %>
   <label>Creating New User:</label><br>  
-  <%= f.text_field :user_name %><br>
-
+  <label>UserName:</label><br>
+  <%= f.text_field :username %><br>
+  <label>First Name:</label><br>
+  <%= f.text_field :first_name %><br>
+  <label>Last Name:</label><br>
+  <%= f.text_field :last_name %><br>
+  <label>Email:</label><br>
+  <%= f.text_field :email %><br>
   <label>Password:</label><br>
-  <%= f.text_area :password %><br>
-
+  <%= f.password_field  :password %><br>
+  <%= f.password_field  :password_confirmation %><br>
   <%= f.submit  "Create" %>
 <% end %>
