@@ -1,8 +1,8 @@
 <div><h1>WaterSportsCentral</h1></div>
 <div>
   <%if !current_user then%>
-    <h3>Log In</h3>
+    <%= button_to "Login", '/login', method: :get%>
   <%else %>
-    <h3>Log Out</h3>
+    <%= button_to "Logout", '/logout', method: :get%>
   <%end%>
 </div>

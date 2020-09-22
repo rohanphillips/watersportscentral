@@ -11,10 +11,6 @@ class UsersController < ApplicationController
     else
       render :new
     end
-    #   session[:user_id] = @user.id      
-    # else
-    #   redirect_to new_user_url
-    # end
   end
  
   private
