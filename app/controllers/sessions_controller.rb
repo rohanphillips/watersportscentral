@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorized, only: [:new, :create]
+  
   def new
   end
 
@@ -15,6 +17,9 @@ class SessionsController < ApplicationController
     else
       redirect_to '/sessions/new'
     end
+  end
+
+  def page_requires_login
   end
 
   def destroy
