@@ -3,13 +3,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    if params[:user][:password] == params[:user][:password_confirmation]
+    @user = User.new(user_params)
+    if @user.valid?
       @user = User.create(user_params)
-      byebug
-      session[:user_id] = @user.id      
     else
-      redirect_to new_user_url
+      render :new
     end
+    #   session[:user_id] = @user.id      
+    # else
+    #   redirect_to new_user_url
+    # end
   end
  
   private
