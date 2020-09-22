@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
   resources :users
-  resources :welcome, only: [:show]
+  # resources :welcome, only: [:show]
   resources :sessions, only:[:new, :create, :destroy]
 end
