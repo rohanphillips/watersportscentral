@@ -1,5 +1,10 @@
 <h1>Login</h1>
   <%= form_tag '/login' do %>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
     <%= label_tag :username%>
     <%= text_field_tag :username %>
     <%= label_tag :password%>

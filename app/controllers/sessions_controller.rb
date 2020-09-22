@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])    
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to '/'
+      redirect_to '/welcome'
     else
-      redirect_to '/login'
+      redirect_to '/login', notice: "Invalid Login Credentials"
     end 
   end
 
