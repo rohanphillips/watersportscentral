@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
+  get '/auth/facebook/callback' => 'sessions#fb_create'
   resources :users
   # resources :welcome, only: [:show]
   resources :sessions, only:[:new, :create, :destroy]
