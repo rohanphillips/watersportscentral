@@ -6,12 +6,14 @@ class User < ApplicationRecord
                     :uniqueness => true, 
                     email: true
   validates :password,  :presence => true, 
+                    :allow_blank => true,
+                    :length => {:within => 4..40},
+                    :on => [:update, :fb_create]
+  validates :password,  :presence => true, 
                         :confirmation => true,
                         :length => {:within => 4..40},
                         :on => :create
-  validates :password,  :presence => true, 
-                        :allow_blank => true,
-                        :length => {:within => 4..40},
-                        :on => :update
-                        has_secure_password
+  
+  
+  has_secure_password
 end

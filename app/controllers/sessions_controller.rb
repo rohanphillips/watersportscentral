@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorized, only: [:new, :create, :welcome, :index]
+  skip_before_action :authorized, only: [:new, :create, :welcome, :index, :fb_create]
   
   def new
   end
@@ -15,15 +15,17 @@ class SessionsController < ApplicationController
   end
 
   def fb_create
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.name = auth['info']['name']
+    
+    @user = User.find_or_create_by(username: auth['uid']) do |u|
+      u.first_name = auth['info']['name']
       u.email = auth['info']['email']
-      u.image = auth['info']['image']
+      u.password = (0...20).map { ('a'..'z').to_a[rand(26)] }.join
+
+      # u.image = auth['info']['image']
     end
- 
+   
     session[:user_id] = @user.id
- 
-    render 'welcome/home'
+    redirect_to '/welcome'
   end
 
   def page_requires_login
