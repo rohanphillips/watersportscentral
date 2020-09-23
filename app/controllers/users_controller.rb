@@ -23,8 +23,9 @@ class UsersController < ApplicationController
     if @user.valid?
       if params[:commit] != "Edit"
         User.update(user_params)
+        redirect_to user_url
       else
-        redirect_to '/users/' + @user.id.to_s + 'edit' 
+        redirect_to edit_user_url
       end
     else
       render :new
