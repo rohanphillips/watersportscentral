@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if current_page?(:controller => 'users', :action => 'new') %>
     <label>Creating New User:</label><br>  
-  <% elseif current_page?(:controller => 'users', :action => 'edit')%>
+  <% elsif current_page?(:controller => 'users', :action => 'edit')%>
     <label>Editing User:</label><br> 
   <% end %>
   <% if @user.errors.any? %>
@@ -22,10 +22,10 @@
   <%= f.text_field :last_name %><br>
   <label>Email:</label><br>
   <%= f.text_field :email, required: true %><br>
-  <% if !current_page?(:controller => 'users', :action => 'show') %>
+  <% if !current_page?(:controller => 'users', :action => 'show', :id => @user.id.to_s) %>
     <label>Password:</label><br>
     <%= f.password_field  :password %><br>
     <%= f.password_field  :password_confirmation %><br>    
-    <%= f.submit  "Create" %>
+    <%= f.submit  submit_text %>
   <% end %>
 <% end %>
