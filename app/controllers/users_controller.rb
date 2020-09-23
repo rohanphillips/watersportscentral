@@ -19,10 +19,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    # byebug
     @user = User.find(params[:id])
     if @user.valid?
-      User.update(user_params)
+      if params[:commit] != "Edit"
+        User.update(user_params)
+      else
+        redirect_to '/users/' + @user.id.to_s + 'edit' 
+      end
     else
       render :new
     end

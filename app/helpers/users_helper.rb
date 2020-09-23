@@ -4,6 +4,8 @@ module UsersHelper
       "Save"
     elsif current_page?(:controller => 'users', :action => 'new') 
       "Create"
+    elsif current_page?(:controller => 'users', :action => 'show')
+      "Edit"
     end
   end
 end
