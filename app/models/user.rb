@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :password,  :presence => true, 
                     :allow_blank => true,
                     :length => {:within => 4..40},
-                    :on => [:update, :fb_create]
+                    :on => [:update]
   validates :password,  :presence => true, 
                         :confirmation => true,
                         :length => {:within => 4..40},
