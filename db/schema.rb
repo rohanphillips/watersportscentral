@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2020_09_21_212029) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer "comment_id"
     t.integer "user_id"
     t.datetime "comment_date"
     t.string "comment_text"
@@ -30,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_212029) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "event_id"
+    t.integer "user_id"
     t.string "name"
     t.string "description"
     t.integer "sport"
@@ -49,21 +48,20 @@ ActiveRecord::Schema.define(version: 2020_09_21_212029) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.integer "location_id"
+    t.integer "user_id"
     t.string "name"
     t.string "description"
     t.string "location_info"
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer "question_id"
     t.integer "user_id"
     t.datetime "question_date"
     t.string "question_text"
   end
 
   create_table "sports", force: :cascade do |t|
-    t.integer "sport_id"
+    t.integer "user_id"
     t.string "name"
     t.string "description"
   end

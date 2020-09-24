@@ -1,11 +1,6 @@
 class User < ApplicationRecord
   has_many :locations
-  has_many :locations, through: :events
-  has_many :events, through: :locations
-  has_many :events, through: :sports
-  has_many :comments, through: :events
-  has_many :comments, through: :locations
-  has_many :sports
+ 
   
   
   validates :username,  :presence => true, 
