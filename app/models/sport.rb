@@ -1,4 +1,4 @@
 class Sport < ApplicationRecord
   belongs_to :user
-  belongs_to :event
+  has_many :events
 end
