@@ -1,5 +1,4 @@
 class SportsController < ApplicationController
-  skip_before_action :authorized
 
   def new
     @sport = Sport.new
@@ -34,6 +33,10 @@ class SportsController < ApplicationController
 
   def show
     @sport = Sport.find(params[:id])
+  end
+
+  def index
+
   end
  
   private
