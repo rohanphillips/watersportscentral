@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :users
   # resources :welcome, only: [:show]
   resources :sessions, only:[:new, :create, :destroy]
+  resources :sports
 end
