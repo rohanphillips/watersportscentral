@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_212118) do
+ActiveRecord::Schema.define(version: 2020_09_21_212029) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "comment_id"
@@ -43,11 +43,6 @@ ActiveRecord::Schema.define(version: 2020_09_21_212118) do
     t.integer "comment_id"
   end
 
-  create_table "location_events", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "location_id"
-  end
-
   create_table "location_questions", force: :cascade do |t|
     t.integer "location_id"
     t.integer "question_id"
@@ -71,11 +66,6 @@ ActiveRecord::Schema.define(version: 2020_09_21_212118) do
     t.integer "sport_id"
     t.string "name"
     t.string "description"
-  end
-
-  create_table "user_events", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "event_id"
   end
 
   create_table "users", force: :cascade do |t|
