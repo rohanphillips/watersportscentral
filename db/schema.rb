@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 2020_09_21_212029) do
     t.datetime "date"
   end
 
+  create_table "events_questions", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "question_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -44,20 +49,15 @@ ActiveRecord::Schema.define(version: 2020_09_21_212029) do
     t.string "location_info"
   end
 
+  create_table "locations_questions", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "question_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "question_date"
     t.string "question_text"
-  end
-
-  create_table "questions_events", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "question_id"
-  end
-
-  create_table "questions_locations", force: :cascade do |t|
-    t.integer "location_id"
-    t.integer "question_id"
   end
 
   create_table "sports", force: :cascade do |t|
