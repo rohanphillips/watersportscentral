@@ -1,5 +1,8 @@
 <h1>Sports</h1>
-
+<div style="float:left; width: auto;">
+  <%= button_to "New", '/sports/new', method: :get%>
+</div>
+<br><br>
 <% @sports.each do |s|%>
   <div style="float:left; width: auto;">
     <%= s.name %> <%= s.description%> 

@@ -1,5 +1,8 @@
 <h1>Events</h1>
-
+<div style="float:left; width: auto;">
+  <%= button_to "New", '/events/new', method: :get%>
+</div>
+<br><br>
 <% @events.each do |e|%>
   <div style="float:left; width: auto;">
     <%= e.name %> <%= e.description%> 

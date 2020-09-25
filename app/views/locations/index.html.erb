@@ -1,5 +1,8 @@
 <h1>Locations</h1>
-
+<div style="float:left; width: auto;">
+  <%= button_to "New", '/locations/new', method: :get%>
+</div>
+<br><br>
 <% @locations.each do |l|%>
   <div style="float:left; width: auto;">
     <%= l.name %> <%= l.description%> 
