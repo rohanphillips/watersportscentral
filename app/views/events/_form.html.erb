@@ -8,12 +8,10 @@
   <%= label_text_field(e, :name) %><br>
   <label>Description:</label><br>
   <%= label_text_field(e, :description) %><br>
-  <label>Sport:</label><br>
-  <%= label_text_field(e, :sport) %><br>
+  
   <label>Date:</label><br>
   <%= label_text_field(e, :date) %><br>
-  <label>Location:</label><br>
-  <%= label_text_field(e, :location) %><br>
+  
   <% if !current_page?(:controller => controller_name, :action => 'show', :id => @event.id.to_s) %>
      <% params[:form_action] = :action %>
   <% else %>
