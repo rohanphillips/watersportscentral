@@ -5,9 +5,9 @@
     <label>Editing Sport:</label><br> 
   <% end %>
   <label>Sport Name:</label><br>
- <%= label_text_field(f, :name) %><br>
+ <%= label_text_field(@sport, f, :name) %><br>
   <label>Description:</label><br>
-  <%= label_text_field(f, :description) %><br>
+  <%= label_text_field(@sport, f, :description) %><br>
   <% if !current_page?(:controller => controller_name, :action => 'show', :id => @sport.id.to_s) %>
      <% params[:form_action] = :action %>
   <% else %>

@@ -9,8 +9,8 @@ module ApplicationHelper
     end
   end
 
-  def label_text_field(model, field)
-    if current_page?(:controller => controller_name, :action => 'show')
+  def label_text_field(record, model, field)
+    if current_page?(:controller => controller_name, :action => 'show', :id => record.id == nil ? 0 : record.id)
       model.text_field field, :readonly => true
     else
       model.text_field field

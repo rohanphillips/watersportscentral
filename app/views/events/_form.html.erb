@@ -5,12 +5,13 @@
     <label>Editing Event:</label><br> 
   <% end %>
   <label>Event Name:</label><br>
-  <%= label_text_field(e, :name) %><br>
+  <%= label_text_field(@event, e, :name) %><br>
   <label>Description:</label><br>
-  <%= label_text_field(e, :description) %><br>
-  
+  <%= label_text_field(@event, e, :description) %><br>
+  <label>Sport:</label><br>
+  <%= sport_id_field(@event) %><br>
   <label>Date:</label><br>
-  <%= label_text_field(e, :date) %><br>
+  <%= label_text_field(@event, e, :date) %><br>
   
   <% if !current_page?(:controller => controller_name, :action => 'show', :id => @event.id.to_s) %>
      <% params[:form_action] = :action %>
