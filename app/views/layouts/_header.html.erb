@@ -3,10 +3,10 @@
   <%if !current_user then%>
     <%= button_to "Login", '/login', method: :get%>
   <%else %>    
-    <div float:left;>
+    <div style="float:right; width: auto;">
       <%= button_to "Profile", '/users/' + session[:user_id].to_s, method: :get%>
-     </div>
-     <div float:left;>
+    </div>
+    <div style="float:right; width: auto;">
       <%= button_to "Logout", '/logout', method: :get%>
     </div>
    
