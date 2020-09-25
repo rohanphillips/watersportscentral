@@ -1,8 +1,12 @@
 <h1>Sports</h1>
 
 <% @sports.each do |s|%>
-  <%= s.name %> <%= s.description%> 
+  <div style="float:left; width: auto;">
+    <%= s.name %> <%= s.description%> 
+  </div>
   <%if current_user then%> 
-    <%= button_to "Edit", '/sports/' + s.id.to_s + '/edit', method: :get%>
+    <div style="float:left; width: auto;">
+      <%= button_to "Edit", '/sports/' + s.id.to_s + '/edit', method: :get%>
+    </div>
   <%end%>
 <% end %>
