@@ -7,7 +7,8 @@ class SportsController < ApplicationController
   def create
     @sport = Sport.new(sport_params)
     if @sport.valid?
-      @user = Sport.create(sport_params)
+      @sport = Sport.create(sport_params)
+      render :show
     else
       render :new
     end
@@ -42,7 +43,7 @@ class SportsController < ApplicationController
   private
  
   def sport_params
-    params.require(:sport).permit(:name, :description)
+    params.require(:sport).permit(:name, :description).merge(user_id: session[:user_id])
   end
 
 

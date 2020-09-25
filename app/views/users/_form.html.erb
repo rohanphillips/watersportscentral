@@ -12,7 +12,7 @@
   <%= f.text_field :last_name %><br>
   <label>Email:</label><br>
   <%= f.text_field :email, required: true %><br>
-  <% if !current_page?(:controller => 'users', :action => 'show', :id => @user.id.to_s) %>
+  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @user.id.to_s) %>
     <label>Password:</label><br>
     <%= f.password_field  :password %><br>
     <%= f.password_field  :password_confirmation %><br> 
