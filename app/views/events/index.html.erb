@@ -1,0 +1,12 @@
+<h1>Events</h1>
+
+<% @events.each do |e|%>
+  <div style="float:left; width: auto;">
+    <%= e.name %> <%= e.description%> 
+  </div>
+  <%if current_user then%> 
+    <div style="float:left; width: auto;">
+      <%= button_to "Edit", '/locations/' + e.id.to_s + '/edit', method: :get%>
+    </div>
+  <%end%>
+<% end %>
