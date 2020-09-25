@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   # resources :welcome, only: [:show]
   resources :sessions, only:[:new, :create, :destroy]
   resources :sports
+  resources :locations
+  resources :events
 end
