@@ -1,0 +1,20 @@
+<%= form_for(@location) do |l| %>
+  <% if current_page?(:controller => controller_name, :action => 'new') %>
+    <label>Creating New Location:</label><br>  
+  <% elsif current_page?(:controller => controller_name, :action => 'edit')%>
+    <label>Editing Location:</label><br> 
+  <% end %>
+  <label>Location Name:</label><br>
+  <%= label_text_field(l, :name) %><br>
+  <label>Description:</label><br>
+  <%= label_text_field(l, :description) %><br>
+  <label>Location Info:</label><br>
+  <%= label_text_field(l, :location_info) %><br>
+  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @location.id.to_s) %>
+     <% params[:form_action] = :action %>
+  <% else %>
+    <% params[:form_action] = "show"%>
+  <% end %>
+  <%= l.submit  submit_text(@location) %>
+  
+<% end %>
