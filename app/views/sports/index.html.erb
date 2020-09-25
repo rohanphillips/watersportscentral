@@ -1,1 +1,5 @@
-Sports Index Page
+<h1>Sports</h1>
+
+<% @sports.each do |s|%>
+  <%= s.name %> <%= s.description%>
+<% end %>

@@ -37,7 +37,7 @@ class SportsController < ApplicationController
   end
 
   def index
-
+    @sports = Sport.all
   end
  
   private
