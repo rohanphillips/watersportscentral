@@ -1,5 +1,8 @@
 <h1>Sports</h1>
 
 <% @sports.each do |s|%>
-  <%= s.name %> <%= s.description%> <%= button_to "Edit", '/sports/' + s.id.to_s + '/edit', method: :get%>
+  <%= s.name %> <%= s.description%> 
+  <%if current_user then%> 
+    <%= button_to "Edit", '/sports/' + s.id.to_s + '/edit', method: :get%>
+  <%end%>
 <% end %>

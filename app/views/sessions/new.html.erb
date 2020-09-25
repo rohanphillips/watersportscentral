@@ -1,4 +1,7 @@
 <h1>Login</h1>
+  <%= link_to('Log in with Facebook!', '/auth/facebook') %><br>
+  <br><p>or</p><br>
+
   <%= form_tag '/login' do %>
     <% flash.each do |type, msg| %>
       <div>
