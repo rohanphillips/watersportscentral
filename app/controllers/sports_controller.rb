@@ -1,4 +1,5 @@
 class SportsController < ApplicationController
+  skip_before_action :authorized, only: [:index]
 
   def new
     @sport = Sport.new

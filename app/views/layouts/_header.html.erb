@@ -1,7 +1,10 @@
 <div><h1>WaterSportsCentral</h1></div>
 <div>
-  <%if !current_user then%>
-    <%= button_to "Login", '/login', method: :get%>
+  <%if !current_user then%>    
+    <div style="float:left; width: auto;">
+      <%= button_to "Login", '/login', method: :get%>
+    </div>
+   
   <%else %>    
     <div style="float:right; width: auto;">
       <%= button_to "Profile", '/users/' + session[:user_id].to_s, method: :get%>
@@ -11,4 +14,8 @@
     </div>
    
   <%end%>
+   <div style="float:left; width: auto;">
+    <%= button_to "Sports", '/sports/' , method: :get%>
+  </div>
+  <br><br>
 </div>

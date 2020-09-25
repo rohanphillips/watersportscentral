@@ -20,6 +20,6 @@
   <% else %>
     <% params[:form_action] = "show"%>
   <% end %>
-  <%= f.submit  submit_text %>
+  <%= f.submit  submit_text(@user) %>
   
 <% end %>
