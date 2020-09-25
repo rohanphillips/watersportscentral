@@ -5,11 +5,11 @@
     <label>Editing Location:</label><br> 
   <% end %>
   <label>Location Name:</label><br>
-  <%= label_text_field(l, :name) %><br>
+  <%= label_text_field(@location, l, :name) %><br>
   <label>Description:</label><br>
-  <%= label_text_field(l, :description) %><br>
+  <%= label_text_field(@location, l, :description) %><br>
   <label>Location Info:</label><br>
-  <%= label_text_field(l, :location_info) %><br>
+  <%= label_text_field(@location, l, :location_info) %><br>
   <% if !current_page?(:controller => controller_name, :action => 'show', :id => @location.id.to_s) %>
      <% params[:form_action] = :action %>
   <% else %>

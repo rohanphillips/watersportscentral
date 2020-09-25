@@ -23,7 +23,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     if @location.valid?
       if params[:commit] != "Edit"
-        Location.update(location_params)
+        @location.update(location_params)
         redirect_to location_url
       else
         redirect_to edit_location_url

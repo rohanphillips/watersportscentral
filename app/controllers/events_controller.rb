@@ -23,7 +23,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if @event.valid?
       if params[:commit] != "Edit"
-        Event.update(event_params)
+        @event.update(event_params)
         redirect_to event_url
       else
         redirect_to edit_event_url
@@ -44,7 +44,7 @@ class EventsController < ApplicationController
   private
  
   def event_params
-    params.require(:event).permit(:name, :description, :sport, :date, :location).merge(user_id: session[:user_id])
+    params.require(:event).permit(:name, :description, :sport_id, :date, :location_id).merge(user_id: session[:user_id])
   end
 
 

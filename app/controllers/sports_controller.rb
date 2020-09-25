@@ -23,7 +23,7 @@ class SportsController < ApplicationController
     @sport = Sport.find(params[:id])
     if @sport.valid?
       if params[:commit] != "Edit"
-        Sport.update(sport_params)
+        @sport.update(sport_params)
         redirect_to sport_url
       else
         redirect_to edit_sport_url
