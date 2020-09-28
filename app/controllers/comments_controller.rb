@@ -8,8 +8,6 @@ class CommentsController < ApplicationController
         @comment = Event.find(comment_params[:event_id]).comments.create(user_id: comment_params[:user_id], comment_text: comment_params[:comment_text])
         redirect_to event_url(@comment.events.first.id)
     end
-    
-    
   end
 
 private

@@ -33,6 +33,8 @@
 <p>Questions:</p>
 <%= form_with model: @location.questions.build do |question_content| %>
   <%= question_content.hidden_field :user_id, value: session[:user_id] %>
+  <%= question_content.hidden_field :event_id, value: @location.id %>
+  <%= question_content.hidden_field :from_controller, value: controller_name %>
   <%= question_content.text_area :question_text %>    
   <%= question_content.submit %>
 <%end%>
