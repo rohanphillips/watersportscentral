@@ -1,4 +1,4 @@
-<%= form_for(@location) do |l| %>
+<%= form_with model: @location do |l| %>
   <% if current_page?(:controller => controller_name, :action => 'new') %>
     <label>Creating New Location:</label><br>  
   <% elsif current_page?(:controller => controller_name, :action => 'edit')%>
@@ -16,16 +16,23 @@
     <% params[:form_action] = "show"%>
   <% end %>
   <%= l.submit  submit_text(@location) %>
-  <p>Comments:</p>
-  <%= form_for @location.comments.build do |comment_content| %>
-    <%= comment_content.hidden_field :user_id, value: session[:user_id] %>
-    <%= comment_content.text_area :comment_text %>    
-    <%= comment_content.submit %>
-  <%end%>
-  <p>Questions:</p>
-  <%= form_for @location.questions.build do |question_content| %>
-    <%= question_content.hidden_field :user_id, value: session[:user_id] %>
-    <%= question_content.text_area :question_text %>    
-    <%= question_content.submit %>
-  <%end%>
+
+  
+  
+
 <% end %>
+
+<p>Comments:</p>
+<%= form_with model: @location.comments.build do |comment_content| %>
+  <%= comment_content.hidden_field :user_id, value: session[:user_id] %>
+  <%= comment_content.hidden_field :location_id, value: @location.id %>
+  <%= comment_content.hidden_field :from_controller, value: controller_name %>
+  <%= comment_content.text_area :comment_text %>    
+  <%= comment_content.submit %>
+<%end%> 
+<p>Questions:</p>
+<%= form_with model: @location.questions.build do |question_content| %>
+  <%= question_content.hidden_field :user_id, value: session[:user_id] %>
+  <%= question_content.text_area :question_text %>    
+  <%= question_content.submit %>
+<%end%>

@@ -21,7 +21,7 @@ class LocationsController < ApplicationController
 
   def update
     @location = Location.find(params[:id])
-    if @location.valid?      
+    if @location.valid?   
       if params[:commit] == "Create Comment"
         @comment = @location.comments.create(comment_params)
         redirect_to location_url
