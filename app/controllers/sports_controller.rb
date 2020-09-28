@@ -38,7 +38,11 @@ class SportsController < ApplicationController
   end
 
   def index
-    @sports = Sport.all
+    if params[:user_id]
+      @sports = User.find(params[:user_id]).sports
+    else
+      @sports = Sport.all
+    end
   end
  
   private
