@@ -1,1 +1,0 @@
-Location.create(user_id: 1, name: "Test")

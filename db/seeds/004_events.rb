@@ -1,1 +1,0 @@
-Event.create(user_id: 1, name: "Test", location_id: 1, sport_id: 1)
