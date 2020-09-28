@@ -5,6 +5,8 @@ class CreateLocation < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :description
       t.string :location_info
+
+      t.timestamps
     end
   end
 end

@@ -6,7 +6,9 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.integer :sport_id
       t.string :name
       t.string :description      
-      t.datetime :date      
+      t.datetime :date  
+      
+      t.timestamps
     end
   end
 end
