@@ -1,7 +1,9 @@
 <h1>Events</h1>
-<div style="float:left; width: auto;">
-  <%= button_to "New", '/events/new', method: :get%>
-</div>
+ <%if current_user then%> 
+  <div style="float:left; width: auto;">
+    <%= button_to "New", '/events/new', method: :get%>
+  </div>
+<%end%>
 <br><br>
 <% @events.each do |e|%>
   <div style="float:left; width: auto;">
@@ -9,7 +11,8 @@
   </div>
   <%if current_user then%> 
     <div style="float:left; width: auto;">
-      <%= button_to "Edit", user_events_path(e) + '/' + e.id.to_s + '/edit', method: :get%>
+      <%= button_to "Edit", event_url(e) + '/edit', method: :get%>
     </div>
+    <br><br>
   <%end%>
 <% end %>

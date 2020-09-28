@@ -1,7 +1,9 @@
 <h1>Sports</h1>
-<div style="float:left; width: auto;">
-  <%= button_to "New", '/sports/new', method: :get%>
-</div>
+<%if current_user then%> 
+  <div style="float:left; width: auto;">
+    <%= button_to "New", '/sports/new', method: :get%>
+  </div>
+<%end%>
 <br><br>
 <% @sports.each do |s|%>
   <div style="float:left; width: auto;">
@@ -9,7 +11,7 @@
   </div>
   <%if current_user then%> 
     <div style="float:left; width: auto;">
-      <%= button_to "Edit", user_sports_path(s) + '/' + s.id.to_s + '/edit', method: :get%>
+      <%= button_to "Edit", sport_url(s) + '/edit', method: :get%>
     </div>
   <%end%>
   <br><br>

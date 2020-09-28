@@ -9,7 +9,7 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     if @location.valid?
       @location = Location.create(location_params)
-      render :show
+      redirect_to @location
     else
       render :new
     end

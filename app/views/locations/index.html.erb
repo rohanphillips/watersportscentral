@@ -1,7 +1,9 @@
 <h1>Locations</h1>
-<div style="float:left; width: auto;">
-  <%= button_to "New", '/locations/new', method: :get%>
-</div>
+<%if current_user then%> 
+  <div style="float:left; width: auto;">
+    <%= button_to "New", '/locations/new', method: :get%>
+  </div>
+<%end%>
 <br><br>
 <% @locations.each do |l|%>
   <div style="float:left; width: auto;">
@@ -9,7 +11,7 @@
   </div>
   <%if current_user then%> 
     <div style="float:left; width: auto;">
-      <%= button_to "Edit", user_events_path(l) + '/' + l.id.to_s + '/edit', method: :get%>
+      <%= button_to "Edit", location_url(l) + '/edit', method: :get%>
     </div>
   <%end%>
   <br><br>

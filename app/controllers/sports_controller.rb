@@ -9,7 +9,7 @@ class SportsController < ApplicationController
     @sport = Sport.new(sport_params)
     if @sport.valid?
       @sport = Sport.create(sport_params)
-      render :show
+      redirect_to @sport
     else
       render :new
     end
@@ -41,6 +41,7 @@ class SportsController < ApplicationController
     if params[:user_id]
       @sports = User.find(params[:user_id]).sports
     else
+      params[:user_id] = session[:user_id]
       @sports = Sport.all
     end
   end

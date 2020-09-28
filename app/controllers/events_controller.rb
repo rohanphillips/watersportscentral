@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     if @event.valid?
       @event = Event.create(event_params)
-      render :show
+      redirect_to @event
     else
       render :new
     end
