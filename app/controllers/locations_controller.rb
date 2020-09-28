@@ -38,7 +38,11 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = Location.all
+    if params[:user_id]
+      @locations = User.find(params[:user_id]).locations
+    else
+      @locations = Location.all
+    end
   end
  
   private
