@@ -5,13 +5,13 @@
     <label>Editing User:</label><br> 
   <% end %>
   <label>UserName:</label><br>
-   <%= label_text_field(f, :username) %><br>
+   <%= label_text_field(@user, f, :username) %><br>
   <label>First Name:</label><br>
-   <%= label_text_field(f, :first_name) %><br>
+   <%= label_text_field(@user, f, :first_name) %><br>
   <label>Last Name:</label><br>
-   <%= label_text_field(f, :last_name) %><br>
+   <%= label_text_field(@user, f, :last_name) %><br>
   <label>Email:</label><br>
-  <%= label_text_field(f, :email) %><br>
+  <%= label_text_field(@user, f, :email) %><br>
   <% if !current_page?(:controller => controller_name, :action => 'show', :id => @user.id.to_s) %>
     <label>Password:</label><br>
     <%= f.password_field  :password %><br>
