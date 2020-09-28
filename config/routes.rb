@@ -8,10 +8,15 @@ Rails.application.routes.draw do
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
   get '/auth/facebook/callback' => 'sessions#fb_create'
-  resources :users
+  resources :users, only: [:show] do
+    resources :locations, only: [:show, :index]
+    resources :sports, only: [:show, :index]
+    resources :events, only: [:show, :index]
+  end
   # resources :welcome, only: [:show]
+  resources :users, only: [:index, :show, :new, :create, :edit, :update]
   resources :sessions, only:[:new, :create, :destroy]
-  resources :sports
-  resources :locations
-  resources :events
+  resources :sports, only: [:index, :show, :new, :create, :edit, :update]
+  resources :locations, only: [:index, :show, :new, :create, :edit, :update]
+  resources :events, only: [:index, :show, :new, :create, :edit, :update]
 end
