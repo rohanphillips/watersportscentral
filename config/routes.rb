@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :sports, only: [:index, :show, :new, :create, :edit, :update]
   resources :locations, only: [:index, :show, :new, :create, :edit, :update]
   resources :events, only: [:index, :show, :new, :create, :edit, :update]
+  resources :comments
+  resources :questions
 end

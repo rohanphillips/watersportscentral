@@ -11,10 +11,21 @@
   <label>Location Info:</label><br>
   <%= label_text_field(@location, l, :location_info) %><br>
   <% if !current_page?(:controller => controller_name, :action => 'show', :id => @location.id.to_s) %>
-     <% params[:form_action] = :action %>
+    <% params[:form_action] = :action %>
   <% else %>
     <% params[:form_action] = "show"%>
   <% end %>
   <%= l.submit  submit_text(@location) %>
-  
+  <p>Comments:</p>
+  <%= form_for @location.comments.build do |comment_content| %>
+    <%= comment_content.hidden_field :user_id, value: session[:user_id] %>
+    <%= comment_content.text_area :comment_text %>    
+    <%= comment_content.submit %>
+  <%end%>
+  <p>Questions:</p>
+  <%= form_for @location.questions.build do |question_content| %>
+    <%= question_content.hidden_field :user_id, value: session[:user_id] %>
+    <%= question_content.text_area :question_text %>    
+    <%= question_content.submit %>
+  <%end%>
 <% end %>

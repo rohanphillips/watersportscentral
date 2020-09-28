@@ -21,8 +21,11 @@ class LocationsController < ApplicationController
 
   def update
     @location = Location.find(params[:id])
-    if @location.valid?
-      if params[:commit] != "Edit"
+    if @location.valid?      
+      if params[:commit] == "Create Comment"
+        @comment = @location.comments.create(comment_params)
+        redirect_to location_url
+      elsif params[:commit] != "Edit"
         @location.update(location_params)
         redirect_to location_url
       else
@@ -51,5 +54,7 @@ class LocationsController < ApplicationController
     params.require(:location).permit(:name, :description, :location_info).merge(user_id: session[:user_id])
   end
 
-
+  def comment_params
+    params.require(:comment).permit(:content, :user_id, :comment_text)
+  end
 end
