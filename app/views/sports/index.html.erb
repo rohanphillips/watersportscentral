@@ -1,7 +1,7 @@
 <h1>Sports</h1>
 <%if current_user then%> 
   <div style="float:left; width: auto;">
-    <%= button_to "New", '/sports/new', method: :get%>
+    <%= button_to "New", new_sport_button_url, method: :get%>
   </div>
 <%end%>
 <br><br>

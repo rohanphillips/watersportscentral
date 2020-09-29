@@ -18,4 +18,8 @@ module EventsHelper
     end
   end
 
+  def new_event_button_url
+    params[:user_id] ? new_user_event_url : new_event_url
+  end
+
 end

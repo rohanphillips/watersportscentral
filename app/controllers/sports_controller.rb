@@ -46,7 +46,6 @@ class SportsController < ApplicationController
     if params[:user_id]
       @sports = User.find(params[:user_id]).sports
     else
-      params[:user_id] = session[:user_id]
       @sports = Sport.all
     end
   end
