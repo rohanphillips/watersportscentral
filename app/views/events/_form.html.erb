@@ -23,19 +23,21 @@
   
 <% end %>
 
-<p>Comments:</p>
-<%= form_with model: @event.comments.build do |comment_content| %>
-  <%= comment_content.hidden_field :user_id, value: session[:user_id] %>
-  <%= comment_content.hidden_field :event_id, value: @event.id %>
-  <%= comment_content.hidden_field :from_controller, value: controller_name %>
-  <%= comment_content.text_area :comment_text %>    
-  <%= comment_content.submit %>
-<%end%> 
-<p>Questions:</p>
-<%= form_with model: @event.questions.build do |question_content| %>
-  <%= question_content.hidden_field :user_id, value: session[:user_id] %>
-  <%= question_content.hidden_field :event_id, value: @event.id %>
-  <%= question_content.hidden_field :from_controller, value: controller_name %>
-  <%= question_content.text_area :question_text %>    
-  <%= question_content.submit %>
-<%end%>
+<% if questions_comments(@event) %>
+  <p>Comments:</p>
+  <%= form_with model: @event.comments.build do |comment_content| %>
+    <%= comment_content.hidden_field :user_id, value: session[:user_id] %>
+    <%= comment_content.hidden_field :event_id, value: @event.id %>
+    <%= comment_content.hidden_field :from_controller, value: controller_name %>
+    <%= comment_content.text_area :comment_text %>    
+    <%= comment_content.submit %>
+  <%end%> 
+  <p>Questions:</p>
+  <%= form_with model: @event.questions.build do |question_content| %>
+    <%= question_content.hidden_field :user_id, value: session[:user_id] %>
+    <%= question_content.hidden_field :event_id, value: @event.id %>
+    <%= question_content.hidden_field :from_controller, value: controller_name %>
+    <%= question_content.text_area :question_text %>    
+    <%= question_content.submit %>
+  <%end%>
+<% end %>

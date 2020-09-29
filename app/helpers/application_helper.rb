@@ -16,4 +16,9 @@ module ApplicationHelper
       model.text_field field
     end
   end
+
+  def questions_comments(record)
+    test = (current_page?(:controller => controller_name, :action => 'show', :id => record.id == nil ? 0 : record.id))
+    # byebug
+  end
 end

@@ -11,8 +11,11 @@
   </div>
   <%if current_user then%> 
     <div style="float:left; width: auto;">
-      <%= button_to "Edit", sport_url(s) + '/edit', method: :get%>
+      <%= button_to "View", sport_url(s), method: :get%>
     </div>
+    <div style="float:left; width: auto;">
+      <%= button_to "Edit", sport_url(s) + '/edit', method: :get%>
+    </div><br><br>
   <%end%>
   <br><br>
 <% end %>

@@ -10,6 +10,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_09_21_212029) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "comment_text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments_events", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "comment_id"
+  end
+
+  create_table "comments_locations", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "comment_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "location_id"
+    t.integer "sport_id"
+    t.string "name"
+    t.string "description"
+    t.datetime "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "events_questions", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "question_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "description"
+    t.string "location_info"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "locations_questions", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "question_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "question_text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
