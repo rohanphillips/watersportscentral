@@ -23,6 +23,6 @@ module ApplicationHelper
   end
 
   def owns_record(record)
-    record.user_id == current_user.id
+    record.user_id == nil ? true : record.user_id == current_user.id
   end
 end

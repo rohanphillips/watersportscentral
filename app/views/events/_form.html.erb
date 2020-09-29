@@ -23,7 +23,7 @@
   <% else %>
     <% params[:form_action] = "show"%>
   <% end %>
-  <%if owns_record(e) then %> 
+  <%if owns_record(@event) then %> 
     <%= e.submit  submit_text(@event) %>
   <%end%>
   
