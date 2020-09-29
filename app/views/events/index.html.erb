@@ -12,7 +12,7 @@
   
   <%if current_user then%> 
     <div style="float:left; width: auto;">
-      <%= button_to "View", location_url(e), method: :get%>
+      <%= button_to "View", event_url(e), method: :get%>
     </div>
     <%if owns_record(e) then %>  
       <div style="float:left; width: auto;">
