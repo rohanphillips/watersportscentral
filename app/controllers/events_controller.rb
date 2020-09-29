@@ -34,10 +34,12 @@ class EventsController < ApplicationController
   end
 
   def show
+    
     @event = Event.find(params[:id])
   end
 
   def index
+    
     if params[:user_id]
       @events = User.find(params[:user_id]).events
     else

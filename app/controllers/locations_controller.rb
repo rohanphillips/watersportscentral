@@ -41,6 +41,7 @@ class LocationsController < ApplicationController
   end
 
   def index
+    byebug
     if params[:user_id]
       @locations = User.find(params[:user_id]).locations
     else
