@@ -17,9 +17,7 @@ class SportsController < ApplicationController
 
   def edit
     @sport = Sport.find(params[:id])
-    if owns_record(@sport)
-      redirect_to edit_sport_url
-    else
+    if !owns_record(@sport)
       redirect_to sports_url
     end
   end
