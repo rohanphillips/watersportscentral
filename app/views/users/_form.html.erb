@@ -28,6 +28,15 @@
   <% else %>
     <% params[:form_action] = "show"%>
   <% end %>
-  <%= f.submit  submit_text(@user) %>
-  
+  <%= f.submit  submit_text(@user) %>  
 <% end %>
+<p></p>
+<div style="float:left; width: auto;">
+  <%= button_to "my Sports", nested_user_url("sports"), method: :get%>
+</div>
+<div style="float:left; width: auto;">
+  <%= button_to "my Locations", nested_user_url("locations"), method: :get%>
+</div>
+<div style="float:left; width: auto;">
+  <%= button_to "my Events", nested_user_url("events"), method: :get%>
+</div>

@@ -25,4 +25,8 @@ module ApplicationHelper
   def owns_record(record)
     record.user_id == nil ? true : record.user_id == current_user.id
   end
+
+  def nested_user_url(controller)
+    '/users/' + session[:user_id].to_s + '/' + controller
+  end
 end
