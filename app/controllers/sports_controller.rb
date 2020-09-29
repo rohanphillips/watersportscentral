@@ -17,11 +17,16 @@ class SportsController < ApplicationController
 
   def edit
     @sport = Sport.find(params[:id])
+    if owns_record(@sport)
+      redirect_to edit_sport_url
+    else
+      redirect_to sports_url
+    end
   end
 
   def update
     @sport = Sport.find(params[:id])
-    if @sport.valid?
+    if @sport.valid? && current_user && owns_record(@sport)
       if params[:commit] != "Edit"
         @sport.update(sport_params)
         redirect_to sport_url

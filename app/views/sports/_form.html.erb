@@ -8,11 +8,12 @@
  <%= label_text_field(@sport, f, :name) %><br>
   <label>Description:</label><br>
   <%= label_text_field(@sport, f, :description) %><br>
-  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @sport.id.to_s) %>
+  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @sport.id.to_s)%>
      <% params[:form_action] = :action %>
   <% else %>
     <% params[:form_action] = "show"%>
   <% end %>
-  <%= f.submit  submit_text(@sport) %>
-  
+  <% if owns_record(@sport) then %>
+    <%= f.submit  submit_text(@sport) %>
+  <%end%>
 <% end %>

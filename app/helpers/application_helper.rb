@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def label_text_field(record, model, field)
     if current_page?(:controller => controller_name, :action => 'show', :id => record.id == nil ? 0 : record.id)
-      model.text_field field, :readonly => true
+      model.text_field field, style: 'border: none;', :readonly => true
     else
       model.text_field field
     end
@@ -20,5 +20,9 @@ module ApplicationHelper
   def questions_comments(record)
     test = (current_page?(:controller => controller_name, :action => 'show', :id => record.id == nil ? 0 : record.id))
     # byebug
+  end
+
+  def owns_record(record)
+    record.user_id == current_user.id
   end
 end

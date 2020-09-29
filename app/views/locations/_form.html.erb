@@ -15,7 +15,9 @@
   <% else %>
     <% params[:form_action] = "show"%>
   <% end %>
-  <%= l.submit  submit_text(@location) %>
+  <% if owns_record(@location) then %>
+    <%= l.submit  submit_text(@location) %>
+  <%end%>
 
   
   

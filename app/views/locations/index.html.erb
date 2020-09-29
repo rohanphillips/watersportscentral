@@ -11,8 +11,13 @@
   </div>
   <%if current_user then%> 
     <div style="float:left; width: auto;">
-      <%= button_to "Edit", location_url(l) + '/edit', method: :get%>
+      <%= button_to "View", location_url(l), method: :get%>
     </div>
+    <%if owns_record(l) then %>      
+      <div style="float:left; width: auto;">
+        <%= button_to "Edit", location_url(l) + '/edit', method: :get%>
+      </div>
+    <%end%>
   <%end%>
   <br><br>
 <% end %>
