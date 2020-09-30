@@ -6,17 +6,10 @@
 ![GitHub stars](https://img.shields.io/github/stars/rohanphillips/watersportscentral?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/rohanphillips/watersportscentral?style=social)
 
-Project name is a `<utility/tool/feature>` that allows `<insert_target_audience>` to do `<action/task_it_does>`.
+WaterSportsCentral is a CMS that allows users to add/edit/collaborate on Water Sporting events and locations.
 
-Additional line of information text about what the project does. Your introduction should be around 2 or 3 sentences. Don't go overboard, people won't read it.
+The overarching theme is to compile a full list of all water sporting types, locations where they're conducted and events both past and present that are conducted at each location.  There is currently a need to have a central place where a user can come to obtain this kind of information.
 
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-<!--- These are just example requirements. Add, duplicate or remove as required --->
-* You have installed the latest version of `<coding_language/dependency/requirement_1>`
-* You have a `<Windows/Linux/Mac>` machine. State which OS is supported/which is not.
-* You have read `<guide/link/documentation_related_to_project>`.
 
 
 ## Contributing to WaterSportsCentral
