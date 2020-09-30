@@ -18,6 +18,18 @@
     <label>Email:</label><br>
     <%= label_text_field(@user, f, :email) %><br>
   </div>
+   <% if !current_page?(:controller => 'users', :action => 'new') %>
+    <div>
+      <label>Active:</label><br>
+      <%= f.check_box :active%>
+    </div>
+  <%end%>
+  <% if !current_page?(:controller => 'users', :action => 'new') && is_admin%>
+    <div>
+      <label>Admin:</label><br>
+      <%= f.check_box :admin%>
+    </div>
+  <%end%>
   <% if !current_page?(:controller => controller_name, :action => 'show', :id => @user.id.to_s) %>
     <div class="<%= ' field_with_errors' if @user.errors[:password].any? %>">
       <label>Password:</label><br>

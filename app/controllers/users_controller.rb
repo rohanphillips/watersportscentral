@@ -21,9 +21,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.valid?
+    if @user.valid?      
       if params[:commit] != "Edit"
-        User.update(user_params)
+        @user.update(user_params)        
+        
         redirect_to user_url
       else
         redirect_to edit_user_url
@@ -48,11 +49,15 @@ class UsersController < ApplicationController
   private
  
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :password_confirmation).merge(user_id: session[:user_id])
+    params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :password_confirmation, :active, :admin)
   end
 
   def not_admin_user_url
     '/users/' + current_user.id.to_s
+  end
+  
+  def valid_commit
+    params[:commit] != "Edit" || params[:commit]
   end
 
 end
