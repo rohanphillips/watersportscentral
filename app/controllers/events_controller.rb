@@ -2,28 +2,28 @@ class EventsController < ApplicationController
   skip_before_action :authorized, only: [:index]
 
   def new
-    @event = Event.new
+    @record = Event.new
   end
 
   def create
-    @event = Event.new(event_params)
-    if @event.valid?
-      @event = Event.create(event_params)
-      redirect_to @event
+    @record = Event.new(event_params)
+    if @record.valid?
+      @record = Event.create(event_params)
+      redirect_to @record
     else
       render :new
     end
   end
 
   def edit
-    @event = Event.find(params[:id])
+    @record = Event.find(params[:id])
   end
 
   def update
-    @event = Event.find(params[:id])
-    if @event.valid?
+    @record = Event.find(params[:id])
+    if @record.valid?
       if params[:commit] != "Edit"
-        @event.update(event_params)
+        @record.update(event_params)
         redirect_to event_url
       else
         redirect_to edit_event_url
@@ -35,7 +35,7 @@ class EventsController < ApplicationController
 
   def show
     
-    @event = Event.find(params[:id])
+    @record = Event.find(params[:id])
   end
 
   def index

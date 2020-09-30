@@ -2,7 +2,7 @@
   <p>Comments:</p>
   <%= form_with model: @record.comments.build do |comment_content| %>
     <%= comment_content.hidden_field :user_id, value: session[:user_id] %>
-    <%= comment_content.hidden_field :location_id, value: @record.id %>
+    <%= comment_content.hidden_field :record_id, value: @record.id %>
     <%= comment_content.hidden_field :from_controller, value: controller_name %>
     <%= comment_content.text_area :comment_text %>    
     <%= comment_content.submit %>
@@ -30,7 +30,7 @@
   <p>Questions:</p>
   <%= form_with model: @record.questions.build do |question_content| %>
     <%= question_content.hidden_field :user_id, value: session[:user_id] %>
-    <%= question_content.hidden_field :location_id, value: @record.id %>
+    <%= question_content.hidden_field :record_id, value: @record.id %>
     <%= question_content.hidden_field :from_controller, value: controller_name %>
     <%= question_content.text_area :question_text %>    
     <%= question_content.submit %>
