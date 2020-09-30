@@ -15,7 +15,7 @@
     </div>
     <%if owns_record(s) then %>
       <div style="float:left; width: auto;">
-        <%= button_to "Edit", sport_url(s) + '/edit', method: :get%>
+        <%= button_to "Edit", edit_sport_button_url(s), method: :get%>
       </div><br><br>
     <%end%>
   <%end%>

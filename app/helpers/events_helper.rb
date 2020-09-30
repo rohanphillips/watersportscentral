@@ -28,8 +28,7 @@ module EventsHelper
         '/users/' + params[:user_id].to_s + '/events/' + event.id.to_s + '/edit'
       when false
         '/events/' + event.id.to_s + '/edit'
-    end
-     
+    end     
   end
 
 end
