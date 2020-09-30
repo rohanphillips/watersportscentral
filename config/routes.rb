@@ -14,11 +14,9 @@ Rails.application.routes.draw do
     resources :events, only: [:show, :index, :new, :edit]
   end
   # resources :welcome, only: [:show]
-  resources :users, only: [:index, :show, :new, :create, :edit, :update]
+  # resources :users, only: [:index, :show, :new, :create, :edit, :update]
   resources :sessions, only:[:new, :create, :destroy]
   resources :sports, only: [:index, :show, :new, :create, :edit, :update]
   resources :locations, only: [:index, :show, :new, :create, :edit, :update]
   resources :events, only: [:index, :show, :new, :create, :edit, :update]
-  resources :comments
-  resources :questions
 end
