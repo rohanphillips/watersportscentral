@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get 'inactive'
     end
   end
-  resources :users, only: [:show, :new, :create, :edit, :update] do
+  resources :users, only: [:index, :show, :new, :create, :edit, :update] do
     resources :locations, only: [:show, :index, :new, :edit]
     resources :sports, only: [:show, :index, :new, :edit]
     resources :events, only: [:show, :index, :new, :edit]
