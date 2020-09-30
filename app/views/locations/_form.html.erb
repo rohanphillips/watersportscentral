@@ -1,84 +1,27 @@
-<%= form_with model: @location do |l| %>
+<%= form_with model: @record do |l| %>
   <% if current_page?(:controller => controller_name, :action => 'new') %>
     <label>Creating New Location:</label><br>  
   <% elsif current_page?(:controller => controller_name, :action => 'edit')%>
     <label>Editing Location:</label><br> 
   <% end %>
-  <div class="<%= ' field_with_errors' if @location.errors[:name].any? %>">
+  <div class="<%= ' field_with_errors' if @record.errors[:name].any? %>">
     <label>Location Name:</label><br>
-    <%= label_text_field(@location, l, :name) %><br>
+    <%= label_text_field(@record, l, :name) %><br>
   </div>
-  <div class="<%= ' field_with_errors' if @location.errors[:description].any? %>">
+  <div class="<%= ' field_with_errors' if @record.errors[:description].any? %>">
     <label>Description:</label><br>
-    <%= label_text_field(@location, l, :description) %><br>
+    <%= label_text_field(@record, l, :description) %><br>
   </div>
   <label>Location Info:</label><br>
-  <%= label_text_field(@location, l, :location_info) %><br>
-  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @location.id.to_s) %>
+  <%= label_text_field(@record, l, :location_info) %><br>
+  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @record.id.to_s) %>
     <% params[:form_action] = :action %>
   <% else %>
     <% params[:form_action] = "show"%>
   <% end %>
-  <% if owns_record(@location) then %>
-    <%= l.submit  submit_text(@location) %>
+  <% if owns_record(@record) then %>
+    <%= l.submit  submit_text(@record) %>
   <%end%>
 <% end %>
 
-<% if questions_comments(@location) %>
-  <p>Comments:</p>
-  <%= form_with model: @location.comments.build do |comment_content| %>
-    <%= comment_content.hidden_field :user_id, value: session[:user_id] %>
-    <%= comment_content.hidden_field :location_id, value: @location.id %>
-    <%= comment_content.hidden_field :from_controller, value: controller_name %>
-    <%= comment_content.text_area :comment_text %>    
-    <%= comment_content.submit %>
-  <%end%> 
-  <% if @location.comments.count > 0 then %>
-    <div style="float:left; width: auto;">
-       <%= @location.comments.count %> Comment(s)<br><br>
-    </div><br><br>
-   
-    <% @location.comments.each do |c|%>
-      <%if c.comment_text != nil then%>  
-        <div style="float:left; width: auto;">
-          Comment ID: <%= c.id %> 
-          <%= c.comment_text %>
-          by <%= user_detail(c.user_id)%>
-           @ <%= c.created_at%>
-        </div>
-      <% end %>
-    <% end %>
-  <% else %>
-    <div>
-      No Comments Yet
-    </div>
-  <%end%><br>
-  <p>Questions:</p>
-  <%= form_with model: @location.questions.build do |question_content| %>
-    <%= question_content.hidden_field :user_id, value: session[:user_id] %>
-    <%= question_content.hidden_field :location_id, value: @location.id %>
-    <%= question_content.hidden_field :from_controller, value: controller_name %>
-    <%= question_content.text_area :question_text %>    
-    <%= question_content.submit %>
-  <%end%>
-  <% if @location.questions.count > 0 then %>
-    <div style="float:left; width: auto;">
-       <%= @location.questions.count %> Questions(s)<br><br>
-    </div><br><br>
-   
-    <% @location.questions.each do |q|%>
-      <%if q.question_text != nil then%>  
-        <div style="float:left; width: auto;">
-          Question ID: <%= q.id %> 
-          <%= q.question_text %>
-          by <%= user_detail(q.user_id)%>
-           @ <%= q.created_at%>
-        </div>
-      <% end %>
-    <% end %>
-  <% else %>
-    <div>
-      No Questions Yet
-    </div>
-  <%end%><br>
-<% end %>
+

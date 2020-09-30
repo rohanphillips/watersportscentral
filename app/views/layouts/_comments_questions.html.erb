@@ -1,0 +1,58 @@
+<% if questions_comments(@record) %>
+  <p>Comments:</p>
+  <%= form_with model: @record.comments.build do |comment_content| %>
+    <%= comment_content.hidden_field :user_id, value: session[:user_id] %>
+    <%= comment_content.hidden_field :location_id, value: @record.id %>
+    <%= comment_content.hidden_field :from_controller, value: controller_name %>
+    <%= comment_content.text_area :comment_text %>    
+    <%= comment_content.submit %>
+  <%end%> 
+  <% if @record.comments.count > 0 then %>
+    <div style="float:left; width: auto;">
+       <%= @record.comments.count %> Comment(s)<br><br>
+    </div><br><br>
+   
+    <% @record.comments.each do |c|%>
+      <%if c.comment_text != nil then%>  
+        <div style="float:left; width: auto;">
+          Comment ID: <%= c.id %> 
+          <%= c.comment_text %>
+          by <%= user_detail(c.user_id)%>
+           @ <%= c.created_at%>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div>
+      No Comments Yet
+    </div>
+  <%end%><br>
+  <p>Questions:</p>
+  <%= form_with model: @record.questions.build do |question_content| %>
+    <%= question_content.hidden_field :user_id, value: session[:user_id] %>
+    <%= question_content.hidden_field :location_id, value: @record.id %>
+    <%= question_content.hidden_field :from_controller, value: controller_name %>
+    <%= question_content.text_area :question_text %>    
+    <%= question_content.submit %>
+  <%end%>
+  <% if @record.questions.count > 0 then %>
+    <div style="float:left; width: auto;">
+       <%= @record.questions.count %> Questions(s)<br><br>
+    </div><br><br>
+   
+    <% @record.questions.each do |q|%>
+      <%if q.question_text != nil then%>  
+        <div style="float:left; width: auto;">
+          Question ID: <%= q.id %> 
+          <%= q.question_text %>
+          by <%= user_detail(q.user_id)%>
+           @ <%= q.created_at%>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div>
+      No Questions Yet
+    </div>
+  <%end%><br>
+<% end %>
