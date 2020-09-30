@@ -1,4 +1,4 @@
-<%= form_with model: @record do |e| %>
+<%= form_for (@record) do |e| %>
   <% if current_page?(:controller => controller_name, :action => 'new') %>
     <label>Creating New Event:</label><br>  
   <% elsif current_page?(:controller => controller_name, :action => 'edit')%>

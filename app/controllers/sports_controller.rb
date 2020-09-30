@@ -2,31 +2,31 @@ class SportsController < ApplicationController
   skip_before_action :authorized, only: [:index]
 
   def new
-    @sport = Sport.new
+    @record = Sport.new
   end
 
   def create
-    @sport = Sport.new(sport_params)
-    if @sport.valid?
-      @sport = Sport.create(sport_params)
-      redirect_to @sport
+    @record = Sport.new(sport_params)
+    if @record.valid?
+      @record = Sport.create(sport_params)
+      redirect_to @record
     else
       render :new
     end
   end
 
   def edit
-    @sport = Sport.find(params[:id])
-    if !owns_record(@sport)
+    @record = Sport.find(params[:id])
+    if !owns_record(@record)
       redirect_to sports_url
     end
   end
 
   def update
-    @sport = Sport.find(params[:id])
-    if @sport.valid? && current_user && owns_record(@sport)
+    @record = Sport.find(params[:id])
+    if @record.valid? && current_user && owns_record(@record)
       if params[:commit] != "Edit"
-        @sport.update(sport_params)
+        @record.update(sport_params)
         redirect_to sport_url
       else
         redirect_to edit_sport_url
@@ -37,7 +37,7 @@ class SportsController < ApplicationController
   end
 
   def show
-    @sport = Sport.find(params[:id])
+    @record = Sport.find(params[:id])
   end
 
   def index
