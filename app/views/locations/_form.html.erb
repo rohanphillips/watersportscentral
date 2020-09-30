@@ -37,6 +37,26 @@
     <%= comment_content.text_area :comment_text %>    
     <%= comment_content.submit %>
   <%end%> 
+  <% if @location.comments.count > 0 then %>
+    <div style="float:left; width: auto;">
+       <%= @location.comments.count %> Comment(s)<br><br>
+    </div><br><br>
+   
+    <% @location.comments.each do |c|%>
+      <%if c.comment_text != nil then%>  
+        <div style="float:left; width: auto;">
+          Comment ID: <%= c.id %> 
+          <%= c.comment_text %>
+          by <%= user_detail(c.user_id)%>
+           @ <%= c.created_at%>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div>
+      No Comments Yet
+    </div>
+  <%end%><br>
   <p>Questions:</p>
   <%= form_with model: @location.questions.build do |question_content| %>
     <%= question_content.hidden_field :user_id, value: session[:user_id] %>
