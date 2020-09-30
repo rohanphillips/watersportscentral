@@ -22,4 +22,7 @@ class User < ApplicationRecord
   
   
   has_secure_password
+
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
 end

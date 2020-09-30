@@ -50,7 +50,11 @@ class UsersController < ApplicationController
   end
 
   def active
-    @users = User.all
+    @users = User.all.active
+  end
+
+  def inactive
+    @users = User.all.inactive
   end
  
   private
