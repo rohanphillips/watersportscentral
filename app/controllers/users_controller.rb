@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user = User.create(user_params)
+      redirect_to user_url
     else
       render :new
     end
