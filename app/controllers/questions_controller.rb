@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   def create
     case question_params[:from_controller]
       when "locations"
-        @question = Location.find(question_params[:event_id]).questions.create(user_id: question_params[:user_id], question_text: question_params[:question_text])
+        @question = Location.find(question_params[:location_id]).questions.create(user_id: question_params[:user_id], question_text: question_params[:question_text])
         redirect_to location_url(@question.locations.first.id)
       when "events"
         @question = Event.find(question_params[:event_id]).questions.create(user_id: question_params[:user_id], question_text: question_params[:question_text])

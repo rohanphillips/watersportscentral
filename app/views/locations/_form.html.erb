@@ -22,10 +22,6 @@
   <% if owns_record(@location) then %>
     <%= l.submit  submit_text(@location) %>
   <%end%>
-
-  
-  
-
 <% end %>
 
 <% if questions_comments(@location) %>
@@ -65,4 +61,24 @@
     <%= question_content.text_area :question_text %>    
     <%= question_content.submit %>
   <%end%>
+  <% if @location.questions.count > 0 then %>
+    <div style="float:left; width: auto;">
+       <%= @location.questions.count %> Questions(s)<br><br>
+    </div><br><br>
+   
+    <% @location.questions.each do |q|%>
+      <%if q.question_text != nil then%>  
+        <div style="float:left; width: auto;">
+          Question ID: <%= q.id %> 
+          <%= q.question_text %>
+          by <%= user_detail(q.user_id)%>
+           @ <%= q.created_at%>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div>
+      No Questions Yet
+    </div>
+  <%end%><br>
 <% end %>
