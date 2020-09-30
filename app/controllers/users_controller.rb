@@ -48,6 +48,10 @@ class UsersController < ApplicationController
       redirect_to not_admin_user_url
     end
   end
+
+  def active
+    @users = User.all
+  end
  
   private
  

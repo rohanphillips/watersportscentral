@@ -1,0 +1,12 @@
+<% @users.each do |u|%>
+  <div style="float:left; width: auto;">
+    <%= u.first_name %> <%= u.last_name%> 
+  </div>
+  <div style="float:left; width: auto;">
+    <%= button_to "View", user_url(u), method: :get%>
+  </div>
+  <div style="float:left; width: auto;">
+    <%= button_to "Edit", edit_user_url(u), method: :get%>
+  </div>
+  <br><br>
+<% end %>
