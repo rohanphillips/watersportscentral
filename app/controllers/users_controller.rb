@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def index
     if is_admin
-
+      @users = User.all
     else
       redirect_to not_admin_user_url
     end
@@ -54,5 +54,5 @@ class UsersController < ApplicationController
   def not_admin_user_url
     '/users/' + current_user.id.to_s
   end
-  
+
 end
