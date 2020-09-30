@@ -38,12 +38,21 @@ class UsersController < ApplicationController
   end
 
   def index
+    if is_admin
 
+    else
+      redirect_to not_admin_user_url
+    end
   end
  
   private
  
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :password_confirmation).merge(user_id: session[:user_id])
   end
+
+  def not_admin_user_url
+    '/users/' + current_user.id.to_s
+  end
+  
 end
