@@ -1,8 +1,8 @@
-<% if form_model.errors.any? %>
+<% if @record.errors.any? %>
   <div id="error_explanation">
     <h2>There were some errors:</h2>
     <ul>
-      <% form_model.errors.full_messages.each do |message| %>
+      <% @record.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
