@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+recordclass EventsController < ApplicationController
   skip_before_action :authorized, only: [:index]
 
   def new
