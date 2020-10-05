@@ -13,6 +13,7 @@
     <%= label_text_field(@record, f, :description) %><br>
   </div>
   <% if !current_page?(:controller => controller_name, :action => 'show', :id => @record.id.to_s)%>
+     
      <% params[:form_action] = :action %>
   <% else %>
     <% params[:form_action] = "show"%>

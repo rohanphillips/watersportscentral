@@ -22,6 +22,15 @@ module EventsHelper
     params[:user_id] ? new_user_event_url : new_event_url
   end
 
+  def show_event_button_url(event)
+    case params.has_key?(:user_id)
+      when true
+        '/users/' + params[:user_id].to_s + '/events/' + event.id.to_s 
+      when false
+        '/events/' + event.id.to_s
+    end     
+  end
+
   def edit_event_button_url(event)
     case params.has_key?(:user_id)
       when true

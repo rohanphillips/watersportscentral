@@ -18,7 +18,7 @@
   <%= label_text_field(@record, e, :date) %><br>
   <label>Location:</label><br>
   <%= location_id_field(@record) %><br>
-  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @record.id.to_s) %>
+  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @record.id.to_s) %>     
      <% params[:form_action] = :action %>
   <% else %>
     <% params[:form_action] = "show"%>
