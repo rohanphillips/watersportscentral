@@ -42,9 +42,9 @@ class SportsController < ApplicationController
 
   def index
     if params[:user_id]
-      @sports = User.find(params[:user_id]).sports
+      @records = User.find(params[:user_id]).sports
     else
-      @sports = Sport.all
+      @records = Sport.all
     end
   end
  
