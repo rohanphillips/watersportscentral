@@ -19,16 +19,6 @@ ActiveRecord::Schema.define(version: 2020_09_30_125444) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "comments_events", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "comment_id"
-  end
-
-  create_table "comments_locations", force: :cascade do |t|
-    t.integer "location_id"
-    t.integer "comment_id"
-  end
-
   create_table "events", force: :cascade do |t|
     t.integer "user_id"
     t.integer "location_id"
@@ -38,6 +28,11 @@ ActiveRecord::Schema.define(version: 2020_09_30_125444) do
     t.datetime "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "events_comments", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "comment_id"
   end
 
   create_table "events_questions", force: :cascade do |t|
@@ -52,6 +47,11 @@ ActiveRecord::Schema.define(version: 2020_09_30_125444) do
     t.string "location_info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "locations_comments", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "comment_id"
   end
 
   create_table "locations_questions", force: :cascade do |t|
