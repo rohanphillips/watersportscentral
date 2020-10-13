@@ -2,27 +2,27 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
 
   def new
-    @record = User.new
+    @user = User.new
   end
 
   def create
-    @record = User.new(user_params)
-    if @record.save
-      redirect_to user_url(@record.id)
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to user_url(@user.id)
     else
       render :new
     end
   end
 
   def edit
-    @record = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
-    @record = User.find(params[:id])
-    if @record.valid?      
+    @user = User.find(params[:id])
+    if @user.valid?      
       if params[:commit] != "Edit"
-        @record.update(user_params)        
+        @user.update(user_params)        
         
         redirect_to user_url
       else
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def show    
-    @record = User.find(params[:id])
+    @user = User.find(params[:id])
     if params[:id] != current_user.id.to_s && is_admin == false
       redirect_to not_admin_user_url
     end
@@ -42,18 +42,18 @@ class UsersController < ApplicationController
 
   def index
     if is_admin
-      @records = User.all
+      @users = User.all
     else
       redirect_to not_admin_user_url
     end
   end
 
   def active
-    @records = User.all.active
+    @users = User.all.active
   end
 
   def inactive
-    @records = User.all.inactive
+    @users = User.all.inactive
   end
  
   private

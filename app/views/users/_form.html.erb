@@ -1,22 +1,22 @@
-<%= form_for (@record) do |f| %>
+<%= form_for (@user) do |f| %>
   <% if current_page?(:controller => 'users', :action => 'new') %>
     <label>Creating New User:</label><br>  
   <% elsif current_page?(:controller => 'users', :action => 'edit')%>
     <label>Editing User:</label><br> 
   <% end %>
-  <div class="<%= ' field_with_errors' if @record.errors[:username].any? %>">
+  <div class="<%= ' field_with_errors' if @user.errors[:username].any? %>">
     <label>UserName:</label><br>
-    <%= label_text_field(@record, f, :username) %><br>
+    <%= label_text_field(@user, f, :username) %><br>
   </div>
-  <div class="<%= ' field_with_errors' if @record.errors[:first_name].any? %>">
+  <div class="<%= ' field_with_errors' if @user.errors[:first_name].any? %>">
     <label>First Name:</label><br>
-    <%= label_text_field(@record, f, :first_name) %><br>
+    <%= label_text_field(@user, f, :first_name) %><br>
   </div>
   <label>Last Name:</label><br>
-   <%= label_text_field(@record, f, :last_name) %><br>
-  <div class="<%= ' field_with_errors' if @record.errors[:email].any? %>">
+   <%= label_text_field(@user, f, :last_name) %><br>
+  <div class="<%= ' field_with_errors' if @user.errors[:email].any? %>">
     <label>Email:</label><br>
-    <%= label_text_field(@record, f, :email) %><br>
+    <%= label_text_field(@user, f, :email) %><br>
   </div>
    <% if !current_page?(:controller => 'users', :action => 'new') %>
     <div>
@@ -30,8 +30,8 @@
       <%= f.check_box :admin%>
     </div>
   <%end%>
-  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @record.id.to_s) %>
-    <div class="<%= ' field_with_errors' if @record.errors[:password].any? %>">
+  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @user.id.to_s) %>
+    <div class="<%= ' field_with_errors' if @user.errors[:password].any? %>">
       <label>Password:</label><br>
       <%= f.password_field  :password %><br>
       <%= f.password_field  :password_confirmation %><br> 
@@ -40,7 +40,7 @@
   <% else %>
     <% params[:form_action] = "show"%>
   <% end %>
-  <%= f.submit  submit_text(@record) %>
+  <%= f.submit  submit_text(@user) %>
 <% end %>
 <p></p>
 <div style="float:left; width: auto;">
