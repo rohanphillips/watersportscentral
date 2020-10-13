@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
         redirect_to location_url(@comment.locations.first.id)
       when "events"
         @comment = Event.find(comment_params[:record_id]).comments.create(user_id: comment_params[:user_id], comment_text: comment_params[:comment_text])
+        byebug
         redirect_to event_url(@comment.events.first.id)
     end
   end

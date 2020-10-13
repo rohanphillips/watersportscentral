@@ -19,7 +19,6 @@ module ApplicationHelper
 
   def questions_comments(record)
     test = (current_page?(:controller => controller_name, :action => 'show', :id => record.id == nil ? 0 : record.id))
-    # byebug
   end
 
   def owns_record(record)
