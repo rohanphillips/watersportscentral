@@ -2,31 +2,31 @@ class LocationsController < ApplicationController
   skip_before_action :authorized, only: [:index]
 
   def new
-    @record = Location.new
+    @location = Location.new
   end
 
   def create
-    @record = Location.new(location_params)
-    if @record.valid?
-      @record = Location.create(location_params)
-      redirect_to @record
+    @location = Location.new(location_params)
+    if @location.valid?
+      @location = Location.create(location_params)
+      redirect_to @location
     else
       render :new
     end
   end
 
   def edit
-    @record = Location.find(params[:id])
+    @location = Location.find(params[:id])
   end
 
   def update
-    @record = Location.find(params[:id])
-    if @record.valid?   
+    @location = Location.find(params[:id])
+    if @location.valid?   
       if params[:commit] == "Create Comment"
-        @comment = @record.comments.create(comment_params)
+        @comment = @location.comments.create(comment_params)
         redirect_to location_url
       elsif params[:commit] != "Edit"
-        @record.update(location_params)
+        @location.update(location_params)
         redirect_to location_url
       else
         redirect_to edit_location_url
@@ -37,7 +37,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @record = Location.find(params[:id])
+    @location = Location.find(params[:id])
   end
 
   def index
