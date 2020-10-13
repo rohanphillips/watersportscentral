@@ -19,7 +19,7 @@
           <%= c.comment_text %>
           by <%= user_detail(c.user_id)%>
            @ <%= c.created_at%>
-        </div>
+        </div><br>
       <% end %>
     <% end %>
   <% else %>
@@ -47,7 +47,7 @@
           <%= q.question_text %>
           by <%= user_detail(q.user_id)%>
            @ <%= q.created_at%>
-        </div>
+        </div><br>
       <% end %>
     <% end %>
   <% else %>
