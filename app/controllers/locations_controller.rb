@@ -7,9 +7,8 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    if @location.valid?
-      @location = Location.create(location_params)
-      redirect_to @location
+    if @location.save
+      redirect_to location_url(@location.id)
     else
       render :new
     end

@@ -7,9 +7,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    if @event.valid?
-      @event = Event.create(event_params)
-      redirect_to @event
+    if @event.save
+      redirect_to event_url(@event)
     else
       render :new
     end
