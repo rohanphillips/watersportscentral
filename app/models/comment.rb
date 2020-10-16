@@ -1,6 +1,9 @@
 class Comment < ApplicationRecord
-  has_and_belongs_to_many :locations
-  has_and_belongs_to_many :events
+  has_many :events_comments
+  has_many :events, through: :events_comments
+
+  has_many :locations_comments
+  has_many :locations, through: :locations_comments
 
   validates :comment_text,  :presence => true
 end

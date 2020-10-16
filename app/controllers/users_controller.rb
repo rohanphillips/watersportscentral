@@ -7,9 +7,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.valid?
-      @user = User.create(user_params)
-      redirect_to user_url
+    if @user.save
+      redirect_to user_url(@user.id)
     else
       render :new
     end

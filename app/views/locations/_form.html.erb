@@ -1,26 +1,26 @@
-<%= form_with model: @record do |l| %>
+<%= form_for (@location) do |l| %>
   <% if current_page?(:controller => controller_name, :action => 'new') %>
     <label>Creating New Location:</label><br>  
   <% elsif current_page?(:controller => controller_name, :action => 'edit')%>
     <label>Editing Location:</label><br> 
   <% end %>
-  <div class="<%= ' field_with_errors' if @record.errors[:name].any? %>">
+  <div class="<%= ' field_with_errors' if @location.errors[:name].any? %>">
     <label>Location Name:</label><br>
-    <%= label_text_field(@record, l, :name) %><br>
+    <%= label_text_field(@location, l, :name) %><br>
   </div>
-  <div class="<%= ' field_with_errors' if @record.errors[:description].any? %>">
+  <div class="<%= ' field_with_errors' if @location.errors[:description].any? %>">
     <label>Description:</label><br>
-    <%= label_text_field(@record, l, :description) %><br>
+    <%= label_text_field(@location, l, :description) %><br>
   </div>
   <label>Location Info:</label><br>
-  <%= label_text_field(@record, l, :location_info) %><br>
-  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @record.id.to_s) %>
+  <%= label_text_field(@location, l, :location_info) %><br>
+  <% if !current_page?(:controller => controller_name, :action => 'show', :id => @location.id.to_s) %>
     <% params[:form_action] = :action %>
   <% else %>
     <% params[:form_action] = "show"%>
   <% end %>
-  <% if owns_record(@record) then %>
-    <%= l.submit  submit_text(@record) %>
+  <% if owns_record(@location) then %>
+    <%= l.submit  submit_text(@location) %>
   <%end%>
 <% end %>
 

@@ -1,6 +1,9 @@
 class Question < ApplicationRecord
-  has_and_belongs_to_many :locations
-  has_and_belongs_to_many :events
+  has_many :events_questions
+  has_many :events, through: :events_questions
+
+  has_many :locations_questions
+  has_many :locations, through: :locations_questions
 
   validates :question_text,  :presence => true
 end
