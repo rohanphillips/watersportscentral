@@ -40,6 +40,7 @@ class SportsController < ApplicationController
   end
 
   def index
+    byebug
     if params[:user_id]
       @sports = User.find(params[:user_id]).sports
     else
