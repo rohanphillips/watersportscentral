@@ -9,6 +9,7 @@ class Location < ApplicationRecord
   has_many :locations_comments
   has_many :comments, through: :locations_comments
 
-  validates :name,  :presence => true
+  validates :name,  :presence => true,
+                :uniqueness => true
   validates :description,  :presence => true
 end

@@ -7,9 +7,8 @@ class SportsController < ApplicationController
 
   def create
     @sport = Sport.new(sport_params)
-    if @sport.valid?
-      @sport = Sport.create(sport_params)
-      redirect_to @sport
+    if @sport.save
+      redirect_to sport_url(@sport)
     else
       render :new
     end

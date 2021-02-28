@@ -8,4 +8,6 @@ class Sport < ApplicationRecord
   has_many :events
   has_many :users, through: :events
   
+  scope :search, -> (search_text) {Sport.where("name LIKE ?", "%" + search_text + "%") }
+
 end
