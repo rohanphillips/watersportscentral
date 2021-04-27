@@ -10,7 +10,8 @@ WaterSportsCentral is a CMS that allows users to add/edit/collaborate on Water S
 
 The overarching theme is to compile a full list of all water sporting types, locations where they're conducted and events both past and present that are conducted at each location.  There is currently a need to have a central place where a user can come to obtain this kind of information.
 
-
+The current version showcases skills learned in the Ruby on Rails section of the Software Engineering Bootcamp that I completed.
+Skills utilized were Ruby, Rails, Active Record, RESTful architecture, erb layouts using partials, Facebook OAuth and scopes.
 
 ## Contributing to WaterSportsCentral
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
@@ -34,4 +35,4 @@ You might want to consider using something like the [All Contributors](https://g
 
 ## Contact
 
-If you want to contact me you can reach me at <your_email@address.com>.
+Reach me at <rohan@rohanphillipscoding.com>.
