@@ -13,9 +13,11 @@ The overarching theme is to compile a full list of all water sporting types, loc
 The current version showcases skills learned in the Ruby on Rails section of the Software Engineering Bootcamp that I completed.
 Skills utilized were Ruby, Rails, Active Record, RESTful architecture, erb layouts using partials, Facebook OAuth and scopes.
 
-## Quick links':'
+## Quick links
 
 ![Demo Gif](https://github.com/rohanphillips/watersportscentral/blob/master/app/assets/images/WaterSportsCentralDemo.gif?raw=true)
+
+![Demo Video](https://youtu.be/T6YpJ9vHxaM)
 
 ## Contributing to WaterSportsCentral
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
