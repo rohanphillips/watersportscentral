@@ -17,7 +17,7 @@ Skills utilized were Ruby, Rails, Active Record, RESTful architecture, erb layou
 
 ![Demo Gif](https://github.com/rohanphillips/watersportscentral/blob/master/app/assets/images/WaterSportsCentralDemo.gif?raw=true)
 
-![Demo Video](https://youtu.be/T6YpJ9vHxaM?raw=true)
+[Demo Video](https://youtu.be/T6YpJ9vHxaM?raw=true)
 
 ## Contributing to WaterSportsCentral
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
